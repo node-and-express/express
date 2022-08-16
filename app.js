@@ -25,7 +25,9 @@ app.use(express.static(path.join(__dirname, 'views')));
 
 //import routes from router file
 const routes=require('./routes/router');
-app.use(routes);
+const userRoutes=require('./routes/user');
+app.use('/',routes);
+app.use('/user',userRoutes);
 
 app.listen(port, () => {
     console.log(`Server started on ${port}`);
